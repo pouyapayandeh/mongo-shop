@@ -10,6 +10,7 @@
 | keyword.
 |
 */
+const path = require('path')
 const providers = [
   'adonis-framework/providers/ConfigProvider',
   'adonis-framework/providers/EnvProvider',
@@ -29,7 +30,8 @@ const providers = [
   'adonis-lucid/providers/FactoryProvider',
   'adonis-middleware/providers/AppMiddlewareProvider',
   'adonis-auth/providers/AuthManagerProvider',
-  'adonis-websocket/providers/WsProvider'
+  'adonis-websocket/providers/WsProvider',
+  'adonis-mongorito/providers/MongoritoProvider'
 ]
 
 /*
@@ -76,7 +78,8 @@ const aliases = {
   Route: 'Adonis/Src/Route',
   Schema: 'Adonis/Src/Schema',
   View: 'Adonis/Src/View',
-  Ws: 'Adonis/Addons/Ws'
+  Ws: 'Adonis/Addons/Ws',
+  MongoritoModel: 'Adonis/Addons/MongoritoModel'
 }
 
 /*
@@ -111,4 +114,5 @@ const commands = [
   'Adonis/Commands/Key:Generate'
 ]
 
-module.exports = { providers, aceProviders, aliases, commands }
+
+module.exports = { providers, aceProviders, aliases, commands  }

@@ -21,6 +21,7 @@
     "adonis-framework": "^3.0.10",
     "adonis-lucid": "^3.0.14",
     "adonis-middleware": "^1.0.11",
+    "adonis-mongorito": "0.0.2",
     "adonis-websocket": "^1.0.3",
     "youch": "^2.0.4"
   },
@@ -34,6 +35,7 @@
     "App": "./app"
   },
   "devDependencies": {
+    "mongodb": "^2.2.29",
     "nodemon": "^1.11.0",
     "standard": "^10.0.1"
   }

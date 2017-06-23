@@ -18,3 +18,10 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+Route.on('login').render('login')
+Route.post('login', 'UserController.login')
+Route.on('register').render('register')
+Route.post('register', 'UserController.register')
+//Product
+
+Route.on('/product/add').render('add-edit-product')
