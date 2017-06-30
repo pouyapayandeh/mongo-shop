@@ -23,6 +23,11 @@ Route.post('login', 'UserController.login')
 Route.on('register').render('register')
 Route.post('register', 'UserController.register')
 //Product
+Route.group('auth-routes',() =>
+{
+  Route.on('/product/add').render('add-edit-product');
+  Route.post('/product/add', 'ProductController.add');
+  Route.get('/product/','ProductController.index');
+  Route.get('/product/delete/:id','ProductController.delete');
+}).middleware('myAuth');
 
-Route.on('/product/add').render('add-edit-product')
-Route.post('/product/add', 'ProductController.add')

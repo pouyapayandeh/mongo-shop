@@ -2,10 +2,18 @@
 const User = use('App/Model/User')
 class UserController {
   * login (request, response) {
-    console.log(request.only('user', 'pass'))
-    const users = yield User.all();
-    console.log(users);
-    yield response.sendView('login', {})
+    var b = request.only('user', 'pass');
+    console.log(b);
+    const user=  yield User.findOne({user:b.user ,pass:b.pass});
+    if(user != null)
+    {
+      console.log(user);
+      const username = yield request.session.put('role',user.get('type'));
+      yield response.sendView('login', {})
+
+    }
+    response.status(400).send('Invalid credentials');
+    return ;
 
   }
   * register (request, response) {

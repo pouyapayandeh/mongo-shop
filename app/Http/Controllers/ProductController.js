@@ -24,15 +24,37 @@ class ProductController {
       var product = request.only('title','price','type','category','brand');
       let props = request.collect('prop','value');
       console.log(props);
+      product['properties'] = {}
       for(var i = 0 ; i < props.length; i++)
       {
         if(props[i].prop != null)
-          product[props[i].prop] = props[i].value;
+          product['properties'][props[i].prop] = props[i].value;
       }
       let p = new Product(product);
       yield p.save();
       console.log(product);
       yield response.sendView('add-edit-product', {})
+  }
+
+  * index(request , response)
+  {
+    const productsDB = yield Product.all();
+
+    var products = yield productsDB.map((product) => {
+      return product.get();
+    });
+    console.log(products);
+    yield response.sendView('list-product', {products:products})
+  }
+  * delete(request , response)
+  {
+    const id = request.param('id');
+    console.log(id);
+    var product = yield Product.where('_id', id).findOne();
+    console.log(product);
+    product.remove();
+
+    yield response.redirect('/product')
   }
 }
 

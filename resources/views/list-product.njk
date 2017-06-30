@@ -1,0 +1,17 @@
+{% extends 'master' %}
+{% block content %}
+  <ul class="list-group">
+    {% for product in products %}
+      <li class="list-group-item justify-content-between">
+
+        {#<span class="badge">12</span>#}
+
+        {{ product.title }}
+        <div class="mr-sm-2">
+          <a class="btn btn-primary" href="/product/edit/{{ product._id }}" role="button">edit</a>
+          <a class="btn btn-danger" href="/product/delete/{{ product._id }}" role="button">delete</a>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
