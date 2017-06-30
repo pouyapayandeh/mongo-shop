@@ -25,3 +25,4 @@ Route.post('register', 'UserController.register')
 //Product
 
 Route.on('/product/add').render('add-edit-product')
+Route.post('/product/add', 'ProductController.add')
