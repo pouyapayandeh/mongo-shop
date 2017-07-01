@@ -21,6 +21,8 @@ Route.on('/').render('welcome')
 Route.on('login').render('login')
 Route.post('login', 'UserController.login')
 Route.on('register').render('register')
+Route.on('search').render('search')
+Route.on('card').render('shopping-list')
 Route.post('register', 'UserController.register')
 //Product
 Route.group('auth-routes',() =>
