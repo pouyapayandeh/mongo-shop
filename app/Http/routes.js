@@ -25,6 +25,7 @@ Route.post('register', 'UserController.register')
 //Product
 Route.group('auth-routes',() =>
 {
+  Route.get('logout', 'UserController.logout');
   Route.on('/product/add').render('add-edit-product');
   Route.post('/product/add', 'ProductController.add');
   Route.get('/product/','ProductController.index');
